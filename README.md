@@ -20,4 +20,5 @@ The Dining Commons Staff Management System (DCSMS) offers several key features t
 - Announcements: The manager can send emails to the employees about any announcements.
 
 _This project is developed as a part of CS520: Theory and Practice of Software Engineering_
+
 _Group Nerd.js_
