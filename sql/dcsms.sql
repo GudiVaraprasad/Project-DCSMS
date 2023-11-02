@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2023 at 06:50 PM
+-- Generation Time: Oct 28, 2023 at 07:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -26,32 +26,130 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
--- Error reading structure for table hotelmgmt.category: #1932 - Table &#039;hotelmgmt.category&#039; doesn&#039;t exist in engine
--- Error reading data for table hotelmgmt.category: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `hotelmgmt`.`category`&#039; at line 1
+
+CREATE TABLE `category` (
+  `Id` int(11) NOT NULL,
+  `CategoryName` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`Id`, `CategoryName`) VALUES
+(1, 'Lunch');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `scheduler`
 --
--- Error reading structure for table hotelmgmt.scheduler: #1932 - Table &#039;hotelmgmt.scheduler&#039; doesn&#039;t exist in engine
--- Error reading data for table hotelmgmt.scheduler: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `hotelmgmt`.`scheduler`&#039; at line 1
+
+CREATE TABLE `scheduler` (
+  `Id` int(11) NOT NULL,
+  `SubCategoryId` int(11) NOT NULL,
+  `Timings` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `scheduler`
+--
+
+INSERT INTO `scheduler` (`Id`, `SubCategoryId`, `Timings`) VALUES
+(1, 1, '{\r\n\"monday\":{\r\n\"9:30-10:30\",\r\n\"13:00-14:30\"\r\n},\r\n\"tuesday\":{\r\n\"10:30-12\"\r\n}\r\n}');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `subcategory`
 --
--- Error reading structure for table hotelmgmt.subcategory: #1932 - Table &#039;hotelmgmt.subcategory&#039; doesn&#039;t exist in engine
--- Error reading data for table hotelmgmt.subcategory: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `hotelmgmt`.`subcategory`&#039; at line 1
+
+CREATE TABLE `subcategory` (
+  `Id` int(11) NOT NULL,
+  `SubCategoryName` varchar(200) NOT NULL,
+  `CategoryId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subcategory`
+--
+
+INSERT INTO `subcategory` (`Id`, `SubCategoryName`, `CategoryId`) VALUES
+(1, 'Dishes', 1);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
--- Error reading structure for table hotelmgmt.users: #1932 - Table &#039;hotelmgmt.users&#039; doesn&#039;t exist in engine
--- Error reading data for table hotelmgmt.users: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `hotelmgmt`.`users`&#039; at line 1
+
+CREATE TABLE `users` (
+  `Id` int(11) NOT NULL,
+  `privilege` int(11) NOT NULL,
+  `Username` varchar(200) NOT NULL,
+  `Name` varchar(200) NOT NULL,
+  `MailId` varchar(200) NOT NULL,
+  `Password` text NOT NULL,
+  `Status` int(11) NOT NULL,
+  `Timings` text NOT NULL,
+  `WorkSchedule` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `scheduler`
+--
+ALTER TABLE `scheduler`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `subcategory`
+--
+ALTER TABLE `subcategory`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `scheduler`
+--
+ALTER TABLE `scheduler`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `subcategory`
+--
+ALTER TABLE `subcategory`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
