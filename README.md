@@ -21,4 +21,4 @@ The Dining Commons Staff Management System (DCSMS) offers several key features t
 
 _This project is developed as a part of CS520: Theory and Practice of Software Engineering_
 
-_Group Nerd.js_
+_Group Project DCSMS_
