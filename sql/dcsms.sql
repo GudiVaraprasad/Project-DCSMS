@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2023 at 07:05 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Nov 07, 2023 at 03:53 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotelmgmt`
+-- Database: `project-dcsms`
 --
 
 -- --------------------------------------------------------
@@ -28,35 +28,54 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `Id` int(11) NOT NULL,
-  `CategoryName` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`Id`, `CategoryName`) VALUES
-(1, 'Lunch');
+  `cid` int(11) NOT NULL,
+  `cname` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scheduler`
+-- Table structure for table `schedule`
 --
 
-CREATE TABLE `scheduler` (
-  `Id` int(11) NOT NULL,
-  `SubCategoryId` int(11) NOT NULL,
-  `Timings` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `schedule` (
+  `schid` int(10) NOT NULL,
+  `day` varchar(15) NOT NULL,
+  `starttime` int(2) NOT NULL,
+  `endtime` int(2) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `sid` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `scheduler`
+-- Table structure for table `staff`
 --
 
-INSERT INTO `scheduler` (`Id`, `SubCategoryId`, `Timings`) VALUES
-(1, 1, '{\r\n\"monday\":{\r\n\"9:30-10:30\",\r\n\"13:00-14:30\"\r\n},\r\n\"tuesday\":{\r\n\"10:30-12\"\r\n}\r\n}');
+CREATE TABLE `staff` (
+  `sid` int(10) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `age` int(3) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `phone` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staffshift`
+--
+
+CREATE TABLE `staffshift` (
+  `ssid` int(10) NOT NULL,
+  `scid` int(10) NOT NULL,
+  `sid` int(10) NOT NULL,
+  `schid` int(10) NOT NULL,
+  `cid` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -65,35 +84,10 @@ INSERT INTO `scheduler` (`Id`, `SubCategoryId`, `Timings`) VALUES
 --
 
 CREATE TABLE `subcategory` (
-  `Id` int(11) NOT NULL,
-  `SubCategoryName` varchar(200) NOT NULL,
-  `CategoryId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `subcategory`
---
-
-INSERT INTO `subcategory` (`Id`, `SubCategoryName`, `CategoryId`) VALUES
-(1, 'Dishes', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `Id` int(11) NOT NULL,
-  `privilege` int(11) NOT NULL,
-  `Username` varchar(200) NOT NULL,
-  `Name` varchar(200) NOT NULL,
-  `MailId` varchar(200) NOT NULL,
-  `Password` text NOT NULL,
-  `Status` int(11) NOT NULL,
-  `Timings` text NOT NULL,
-  `WorkSchedule` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `scid` int(10) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `scname` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -103,25 +97,31 @@ CREATE TABLE `users` (
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`cid`);
 
 --
--- Indexes for table `scheduler`
+-- Indexes for table `schedule`
 --
-ALTER TABLE `scheduler`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`schid`);
+
+--
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `staffshift`
+--
+ALTER TABLE `staffshift`
+  ADD PRIMARY KEY (`ssid`);
 
 --
 -- Indexes for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`scid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -131,25 +131,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `scheduler`
+-- AUTO_INCREMENT for table `schedule`
 --
-ALTER TABLE `scheduler`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `schedule`
+  MODIFY `schid` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `sid` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `staffshift`
+--
+ALTER TABLE `staffshift`
+  MODIFY `ssid` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `scid` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
