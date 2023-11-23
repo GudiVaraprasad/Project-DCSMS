@@ -11,7 +11,7 @@ include '../config/connect.php';
 </head>
 
 <body>
-  <form method="post" action="" class="login">
+  <form method="post" class="login">
     <header>STAFF LOGIN</header>
     <div class="field">
       <span class="fa fa-user"></span>
@@ -33,6 +33,7 @@ include '../config/connect.php';
     $pass = $_POST['pass'];
     $query = "SELECT * FROM staff WHERE email='$email' AND password='$pass'";
     $result = mysqli_query($conn, $query) or die($mysqli_error($conn));
+
     $num = mysqli_num_rows($result);
     if ($num == 0) {
       echo '<script>alert("Invalid Credentials");</script>';
@@ -41,7 +42,8 @@ include '../config/connect.php';
       $_SESSION['email'] = $row['email'];
       $_SESSION['sid'] = $row['sid'];
       $_SESSION['fname'] = $row['fname'];
-      header('location: index.php');
+      // echo '<script>alert(' . $_SESSION["sid"] . ');</script>';
+      echo "<script>window.location='./staff.php'</script>";
     }
   }
   ?>

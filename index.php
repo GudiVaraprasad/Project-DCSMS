@@ -46,22 +46,22 @@ if (!isset($_SESSION['email'])) {
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="index.php" class="nav-link text-dark bg-light">
-          <i class="fa fa-pencil-square-o mr-3 text-dark fa-fw"></i>
-          Work Schedule
+        <a href="addtimeslots.php" class="nav-link text-dark bg-light">
+          <i class="fa fa-plus-circle mr-3 text-dark fa-fw"></i>
+          Add Time Slots
         </a>
       </li>
       <li class="nav-item">
-        <a href="index.php" class="nav-link text-dark">
-          <i class="fa fa-bar-chart mr-3 text-dark fa-fw"></i>
-          Manage Staff
+        <a href="assignshift.php" class="nav-link text-dark">
+          <i class="fa fa-mouse-pointer mr-3 text-dark fa-fw"></i>
+          Assign Shift
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="index.php" class="nav-link text-dark">
-          <i class="fa fa-window-restore mr-3 text-dark fa-fw"></i>
-          Assign Shift
+        <a href="managestaff.php" class="nav-link text-dark">
+          <i class="fa fa-pencil-square-o mr-3 text-dark fa-fw"></i>
+          Manage Staff
         </a>
       </li>
       <!-- <li class="nav-item">
@@ -71,8 +71,8 @@ if (!isset($_SESSION['email'])) {
         </a>
       </li> -->
       <li class="nav-item">
-        <a href="index.php" class="nav-link text-dark">
-          <i class="fa fa-gift mr-3 text-dark fa-fw"></i>
+        <a href="announcements.php" class="nav-link text-dark">
+          <i class="fa fa-bullhorn mr-3 text-dark fa-fw"></i>
           Announcements
         </a>
       </li>
