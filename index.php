@@ -1,7 +1,13 @@
 <?php
+<<<<<<< HEAD
 include './config/connect.php';
 if (!isset($_SESSION['email'])) {
   header('location: managerlogin.php');
+=======
+include 'connect.php';
+if (!isset($_SESSION['email'])) {
+  header('location: login.php');
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
 }
 ?>
 <!DOCTYPE html>
@@ -24,7 +30,11 @@ if (!isset($_SESSION['email'])) {
       <div class="media d-flex align-items-center">
         <img loading="lazy" src="pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         <div class="media-body">
+<<<<<<< HEAD
           <h4 class="m-0"><?php echo $_SESSION['fname']; ?></h4>
+=======
+          <h4 class="m-0"><?php echo $_SESSION['name']; ?></h4>
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
         </div>
       </div>
     </div>
@@ -46,6 +56,7 @@ if (!isset($_SESSION['email'])) {
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
+<<<<<<< HEAD
         <a href="addtimeslots.php" class="nav-link text-dark bg-light">
           <i class="fa fa-plus-circle mr-3 text-dark fa-fw"></i>
           Add Time Slots
@@ -55,13 +66,30 @@ if (!isset($_SESSION['email'])) {
         <a href="assignshift.php" class="nav-link text-dark">
           <i class="fa fa-mouse-pointer mr-3 text-dark fa-fw"></i>
           Assign Shift
+=======
+        <a href="index.php" class="nav-link text-dark bg-light">
+          <i class="fa fa-pencil-square-o mr-3 text-dark fa-fw"></i>
+          Work Schedule
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="index.php" class="nav-link text-dark">
+          <i class="fa fa-bar-chart mr-3 text-dark fa-fw"></i>
+          Manage Staff
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
         </a>
       </li>
 
       <li class="nav-item">
+<<<<<<< HEAD
         <a href="managestaff.php" class="nav-link text-dark">
           <i class="fa fa-pencil-square-o mr-3 text-dark fa-fw"></i>
           Manage Staff
+=======
+        <a href="index.php" class="nav-link text-dark">
+          <i class="fa fa-window-restore mr-3 text-dark fa-fw"></i>
+          Assign Shift
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
         </a>
       </li>
       <!-- <li class="nav-item">
@@ -71,8 +99,13 @@ if (!isset($_SESSION['email'])) {
         </a>
       </li> -->
       <li class="nav-item">
+<<<<<<< HEAD
         <a href="announcements.php" class="nav-link text-dark">
           <i class="fa fa-bullhorn mr-3 text-dark fa-fw"></i>
+=======
+        <a href="index.php" class="nav-link text-dark">
+          <i class="fa fa-gift mr-3 text-dark fa-fw"></i>
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
           Announcements
         </a>
       </li>
@@ -80,7 +113,11 @@ if (!isset($_SESSION['email'])) {
 
 
     <div class="mt-5 text-center">
+<<<<<<< HEAD
       <button type="button" class="btn btn-dark"><a href="managerlogout.php" style="color:white;text-decoration: none;">Logout</a></button>
+=======
+      <button type="button" class="btn btn-dark"><a href="logout.php" style="color:white;text-decoration: none;">Logout</a></button>
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
     </div>
   </div>
   <!-- End vertical navbar -->

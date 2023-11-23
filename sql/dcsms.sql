@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Nov 14, 2023 at 10:44 PM
+=======
+-- Generation Time: Nov 07, 2023 at 03:53 PM
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -63,6 +67,7 @@ CREATE TABLE `staff` (
   `phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `staff`
 --
@@ -71,6 +76,8 @@ INSERT INTO `staff` (`sid`, `fname`, `lname`, `age`, `email`, `password`, `phone
 (34015607, 'Tushar', 'Budhwani', 22, 'tbudhwani@gmail.com', 'tbudhwani', '4134661111'),
 (34028209, 'Vara Prasad', 'Gudi', 22, 'vgudi@umass.edu', 'vgudi', '4134661185');
 
+=======
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
 -- --------------------------------------------------------
 
 --
@@ -151,7 +158,11 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
+<<<<<<< HEAD
   MODIFY `sid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34028210;
+=======
+  MODIFY `sid` int(10) NOT NULL AUTO_INCREMENT;
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
 
 --
 -- AUTO_INCREMENT for table `staffshift`

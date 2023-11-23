@@ -1,5 +1,6 @@
 body {
   /* overflow: hidden; */
+<<<<<<< HEAD
   background-color: #485461;
   background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
   min-height: 100vh;
@@ -68,22 +69,102 @@ body {
 }
 
 /* width */
+=======
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%); 
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+   .vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+  }
+  .page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+  } 
+  
+  #sidebar.active {
+    margin-left: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+  }
+  
+  .text-uppercase {
+    letter-spacing: 0.1em;
+  }
+  .text-gray {
+    color: #aaa;
+  }
+  .nav-link{
+      text-transform: capitalize;
+  }
+  .nav-link:hover{
+      background:#f3f2f2;
+  }
+  .text-primary{
+      color:#7579e7 !important;
+  }
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -17rem;
+    }
+    #sidebar.active {
+      margin-left: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-left: 17rem;
+      width: calc(100% - 17rem);
+    }
+  }
+
+  /* width */
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
 ::-webkit-scrollbar {
   width: 0.7rem;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
+<<<<<<< HEAD
   background: #485461;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #485461;
+=======
+  background: #485461; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #485461; 
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
+<<<<<<< HEAD
   background: #436577;
 }
 
@@ -96,3 +177,9 @@ body {
   display: block;
 }
 /* Assign Shift */
+=======
+  background: #436577; 
+}
+
+  
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e

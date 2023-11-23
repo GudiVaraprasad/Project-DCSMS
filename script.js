@@ -3,6 +3,7 @@ $(function () {
     $("#sidebar, #content").toggleClass("active");
   });
 });
+<<<<<<< HEAD
 
 function showTable(tableId) {
   // Hide all table contents
@@ -14,3 +15,5 @@ function showTable(tableId) {
   // Show the selected table content
   document.getElementById(tableId + "-content").classList.add("active-content");
 }
+=======
+>>>>>>> 81236bf5fda94732fb03d904dd0b6aa4276f6f4e
