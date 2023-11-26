@@ -128,7 +128,7 @@ if (!isset($_SESSION['email'])) {
                         <td> <button class='edit btn btn btn btn-outline-light' id=" . $sno . ">Edit</button></td>";
                 ?>
                     <td><button class='edit btn btn btn btn-outline-light'>
-                            <a style="text-decoration: none; color:red; font-weight:500;" href="deletestaff.php?sid=<?php echo $row['sid']; ?>">Delete</a>
+                            <a style="text-decoration: none; color:red; font-weight:500;" href="./api/deletestaff.php?sid=<?php echo $row['sid']; ?>">Delete</a>
                         </button></td>
                     </tr>
                 <?php
