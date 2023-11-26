@@ -16,6 +16,12 @@ if (!isset($_SESSION['email'])) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Include toastr CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <!-- Include toastr JS file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 </head>
 
 <body>
@@ -99,18 +105,18 @@ if (!isset($_SESSION['email'])) {
         <div class="separator"></div>
         <div class="row text-white">
             <div class="col-lg-12 align-items-center justify-content-center">
-                <form>
+                <form method="post">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Day</label>
                         <div class="form-group">
-                            <select class="form-control" id="shiftday">
-                                <option>Sunday</option>
-                                <option>Monday</option>
-                                <option>Tuesday</option>
-                                <option>Wednesday</option>
-                                <option>Thursday</option>
-                                <option>Friday</option>
-                                <option>Saturday</option>
+                            <select class="form-control" id="shiftday" name="shiftday">
+                                <option value="sunday">Sunday</option>
+                                <option value="sunday">Monday</option>
+                                <option value="sunday">Tuesday</option>
+                                <option value="sunday">Wednesday</option>
+                                <option value="sunday">Thursday</option>
+                                <option value="sunday">Friday</option>
+                                <option value="sunday">Saturday</option>
                             </select>
                         </div>
                     </div>
@@ -118,51 +124,51 @@ if (!isset($_SESSION['email'])) {
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="form-group">
                             <select class="form-control" id="shiftcategory">
-                                <option>Line</option>
-                                <option>GrabnGo</option>
-                                <option>Dishroom</option>
-                                <option>Kitchen</option>
+                                <option value="1">Line</option>
+                                <option value="1">GrabnGo</option>
+                                <option value="1">Dishroom</option>
+                                <option value="1">Kitchen</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Sub-Category</label>
                         <div class="form-group">
-                            <select class="form-control" id="shiftsubcategory">
-                                <option>Asian</option>
-                                <option>Stir Fry</option>
-                                <option>Latin</option>
-                                <option>Deli/Subway</option>
+                            <select class="form-control" id="shiftsubcategory" name="shiftsubcategory">
+                                <option value="1">Asian</option>
+                                <option value="1">Stir Fry</option>
+                                <option value="1">Latin</option>
+                                <option value="1">Deli/Subway</option>
 
-                                <option>Pack</option>
-                                <option>Supply</option>
-                                <option>Cashier</option>
+                                <option value="1">Pack</option>
+                                <option value="1">Supply</option>
+                                <option value="1">Cashier</option>
 
-                                <option>Dishroom</option>
-                                <option>Potroom</option>
-                                <option>Tables</option>
+                                <option value="1">Dishroom</option>
+                                <option value="1">Potroom</option>
+                                <option value="1">Tables</option>
 
-                                <option>AM Prep</option>
-                                <option>Pizza</option>
-                                <option>PM Prep</option>
+                                <option value="1">AM Prep</option>
+                                <option value="1">Pizza</option>
+                                <option value="1">PM Prep</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Start Time</label>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="inputEmail3">
+                            <input type="time" class="form-control" id="starttime" name="starttime">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">End Time</label>
+                        <label for="endtime" class="col-sm-2 col-form-label">End Time</label>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="inputEmail3">
+                            <input type="time" class="form-control" id="endtime" name="endtime">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-white">Add Time Slot</button>
+                            <button type="button" id="submitbtn" class="btn btn-white">Add Time Slot</button>
                         </div>
                     </div>
                 </form>
@@ -178,10 +184,46 @@ if (!isset($_SESSION['email'])) {
     <!-- End demo content -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="script.js"></script>
+
+    <script>
+        $('#submitbtn').on('click', function() {
+            var day = $('#shiftday').val();
+            var shiftcat = $('#shiftcategory').val();
+            var shiftsubcat = $('#shiftsubcategory').val();
+            var starttime = $('#starttime').val();
+            var endtime = $('#endtime').val();
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost/WEBDEV/Project-DCSMS/api/addtimeslot.php',
+                data: {
+                    day: day,
+                    shiftcat: shiftcat,
+                    shiftsubcat: shiftsubcat,
+                    starttime: starttime,
+                    endtime: endtime,
+                },
+                success: function(responsedata) {
+                    var response = JSON.parse(responsedata);
+                    console.log(response);
+                    if (response.status.trim() == "success") {
+                        toastr.success("Succesfully Added");
+                        return;
+                        $(document.querySelector('form')).reset();
+                    } else {
+                        toastr.error("Please contact Developer");
+                    }
+                }
+            })
+        })
+    </script>
+
 </body>
 
 </html>
