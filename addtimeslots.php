@@ -110,13 +110,13 @@ if (!isset($_SESSION['email'])) {
                         <label class="col-sm-2 col-form-label">Day</label>
                         <div class="form-group">
                             <select class="form-control" id="shiftday" name="shiftday">
-                                <option value="sunday">Sunday</option>
-                                <option value="sunday">Monday</option>
-                                <option value="sunday">Tuesday</option>
-                                <option value="sunday">Wednesday</option>
-                                <option value="sunday">Thursday</option>
-                                <option value="sunday">Friday</option>
-                                <option value="sunday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
                             </select>
                         </div>
                     </div>
@@ -124,10 +124,10 @@ if (!isset($_SESSION['email'])) {
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="form-group">
                             <select class="form-control" id="shiftcategory">
-                                <option value="1">Line</option>
-                                <option value="1">GrabnGo</option>
-                                <option value="1">Dishroom</option>
-                                <option value="1">Kitchen</option>
+                                <option value="1000">Line</option>
+                                <option value="2000">GrabnGo</option>
+                                <option value="3000">Dishroom</option>
+                                <option value="4000">Kitchen</option>
                             </select>
                         </div>
                     </div>
@@ -135,22 +135,22 @@ if (!isset($_SESSION['email'])) {
                         <label class="col-sm-2 col-form-label">Sub-Category</label>
                         <div class="form-group">
                             <select class="form-control" id="shiftsubcategory" name="shiftsubcategory">
-                                <option value="1">Asian</option>
-                                <option value="1">Stir Fry</option>
-                                <option value="1">Latin</option>
-                                <option value="1">Deli/Subway</option>
+                                <option value="1010">Asian</option>
+                                <option value="1011">Stir Fry</option>
+                                <option value="1012">Latin</option>
+                                <option value="1013">Deli/Subway</option>
 
-                                <option value="1">Pack</option>
-                                <option value="1">Supply</option>
-                                <option value="1">Cashier</option>
+                                <option value="2010">Pack</option>
+                                <option value="2011">Supply</option>
+                                <option value="2012">Cashier</option>
 
-                                <option value="1">Dishroom</option>
-                                <option value="1">Potroom</option>
-                                <option value="1">Tables</option>
+                                <option value="3010">Dishroom</option>
+                                <option value="3011">Potroom</option>
+                                <option value="3012">Tables</option>
 
-                                <option value="1">AM Prep</option>
-                                <option value="1">Pizza</option>
-                                <option value="1">PM Prep</option>
+                                <option value="4010">AM Prep</option>
+                                <option value="4011">Pizza</option>
+                                <option value="4012">PM Prep</option>
                             </select>
                         </div>
                     </div>
