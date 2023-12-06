@@ -162,7 +162,7 @@ if (!isset($_SESSION['email'])) {
                         <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Assign Employee</label>
                             <input type="hidden" name="schid" id="schid" value="">
-                            <div class="form-group">
+                            <div class="form-group" id="getemployees">
                                 <select class="form-control" id="AssignEmployee" name="AssignEmployee">
                                     <?php
                                     $role = 1;
@@ -207,8 +207,20 @@ if (!isset($_SESSION['email'])) {
     <script>
         function AssignId(data) {
             $('#schid').val(data);
-            $('#myModal').modal('show');
-        }
+            $('#getemployees').html('');
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost/WEBDEV/Project-DCSMS/api/getemphtml.php',
+                data: {
+                    schid: data,
+                },
+                success: function(responsedata) {
+                    $('#getemployees').html(responsedata);
+                    $('#myModal').modal('show');
+                }
+           
+        });
+    }
         $('#AssignEmployeebtn').on('click', function() {
             var schid = $('#schid').val();
             var AssignEmp = $('#AssignEmployee').val();

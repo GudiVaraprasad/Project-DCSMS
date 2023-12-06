@@ -43,7 +43,7 @@ include '../config/connect.php';
       $_SESSION['sid'] = $row['sid'];
       $_SESSION['fname'] = $row['fname'];
       // echo '<script>alert(' . $_SESSION["sid"] . ');</script>';
-      echo "<script>window.location='./staff.php'</script>";
+      echo "<script>window.location='http://localhost/WEBDEV/Project-DCSMS/staff/staff.php'</script>";
     }
   }
   ?>
