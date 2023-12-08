@@ -6,7 +6,7 @@ if (isset($_POST['day'])) {
   $starttime = $_POST['starttime'];
   $endtime = $_POST['endtime'];
   $day = $_POST['day'];
-  $sql = "INSERT INTO schedule(day,starttime,endtime,cid,sid) VALUES('$day','$starttime','$endtime','$shiftcat','$shiftsubcat')";
+  $sql = "INSERT INTO schedule(day,starttime,endtime,cid,scid) VALUES('$day','$starttime','$endtime','$shiftcat','$shiftsubcat')";
   if ($conn->query($sql) === TRUE) {
     $data = array();
     $data['status'] = "success";

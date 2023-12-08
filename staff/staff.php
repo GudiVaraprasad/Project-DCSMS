@@ -22,7 +22,7 @@ if (!isset($_SESSION['sid'])) {
   <div class="vertical-nav bg-white" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
       <div class="media d-flex align-items-center">
-        <img loading="lazy" src="pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        <img loading="lazy" src="../pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         <div class="media-body">
           <h4 class="m-0"><?php echo $_SESSION['fname']; ?></h4>
         </div>
@@ -96,19 +96,40 @@ if (!isset($_SESSION['sid'])) {
 
     <div class="separator"></div>
     <div class="row text-white">
-      <div class="col-lg-6">
-        HERE
-      </div>
+      <?php
+      $sql = "SELECT * FROM announcements";
+      $result = mysqli_query($conn, $sql);
+
+      if ($result) {
+        while ($announcement = mysqli_fetch_assoc($result)) {
+          $alertClass = 'alert mb-3'; // Common class for spacing
+
+          switch ($announcement['posttype']) {
+            case 'Announcement':
+              $alertClass .= ' alert-success';
+              break;
+            case 'Warning':
+              $alertClass .= ' alert-danger';
+              break;
+            default:
+              $announcement['subject'] = 'Unknown announcement type';
+              $announcement['text'] = 'This announcement type is not recognized.';
+              $alertClass .= ' alert-danger';
+              break;
+          }
+
+          echo '<div class="' . $alertClass . '">';
+          echo '<h3>' . $announcement['subject'] . '</h3>';
+          echo '<p>' . $announcement['text'] . '</p>';
+          echo '</div>';
+        }
+
+        mysqli_free_result($result);
+      }
+      ?>
+
 
     </div>
-    <div class="mt-3">
-      <img src="img2.png" width="1000rem" height="auto" class="rounded mx-auto d-block" alt="...">
-    </div>
-    <!-- <div class="mt-5 text-center">
-<button type="button" class="btn btn-dark">Know More
-	<i class="fa fa-arrow-right mr-1 text-light fa-fw"></i>
-</button>
-</div> -->
 
     <div class="footer-copyright text-center text-light py-3 mt-5">&copy; Copyright DCSMS</div>
 

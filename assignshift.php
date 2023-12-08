@@ -127,8 +127,8 @@ if (!isset($_SESSION['email'])) {
                                 <tr>
                                     <th>Id</th>
                                     <th>Sub Category </th>
+                                    <th>Week Day</th>
                                     <th>Time Slot </th>
-                                    <th>Last Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -218,9 +218,9 @@ if (!isset($_SESSION['email'])) {
                     $('#getemployees').html(responsedata);
                     $('#myModal').modal('show');
                 }
-           
-        });
-    }
+
+            });
+        }
         $('#AssignEmployeebtn').on('click', function() {
             var schid = $('#schid').val();
             var AssignEmp = $('#AssignEmployee').val();

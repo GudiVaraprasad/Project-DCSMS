@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 02, 2023 at 09:24 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Host: localhost
+-- Generation Time: Dec 07, 2023 at 11:07 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `announcements` (
   `subject` varchar(200) NOT NULL,
   `text` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `announcements`
@@ -42,7 +42,8 @@ INSERT INTO `announcements` (`posttype`, `subject`, `text`, `timestamp`) VALUES
 ('Announcement', 'Franklin DC- Winter Student Employment', 'Hi Everyone,\r\n\r\nI have been getting a lot of emails/questions regarding winter employment, so I just want to make sure everyone is on the same page so no one feels like they are missing anything.\r\n\r\nWinter positions are incredibly limited, I am still not sure if any exist at all. Franklin, Berkshire and Hampshire are all closed for winter break. Harvest is running limited hours so they are not able to take any more employees, Blue Wall and Worcester will be closed until the middle of January. Blue Wall has already said they are unable to take any more student employees for winter break. Worcester is still waiting to hear back from our directors to see if they are able to keep any students over break, and if so, how many. Please do not go directly to Worcester to ask for a job. This is causing a lot of issues at their location as students from Franklin, Berkshire and Hampshire have all been going to that location asking for work. If they have positions available their hiring manager will let me know and I will relay the message.\r\n\r\n \r\n\r\nThat being said, we will have a few shifts available the week after finals (December 18-21), and we are trying to get permission for students to work concessions events during the winter.\r\n\r\n \r\n\r\nIf you are interested in receiving any information about winter break employment, please send me an email. This does not guarantee you a position, but if opportunities arise I can let you know. If only a few people are going to be able to work, attendance and willingness to work in all departments (ex. kitchen, dish room and pot room) will be reviewed.\r\nLet me know if you have any questions,\r\n\r\nVara Prasad\r\nAssistant Manager\r\nUMass Dining\r\nUniversity of Massachusetts Amherst', '2023-11-30 17:57:46'),
 ('Warning', 'Irregular Punch-in Punch-out', 'Irregular Punch-in Punch-out Practices Detected! Please Adhere to Dining Policies and Ensure Timely Attendance. Failure to Comply May Result in Disciplinary Action.', '2023-11-30 17:57:46'),
 ('', 'Test Email', 'warning sent', '2023-11-30 17:57:46'),
-('Warning', 'Test Email', 'warning guys', '2023-11-30 17:57:46');
+('Warning', 'Test Email', 'warning guys', '2023-11-30 17:57:46'),
+('Announcement', '', '', '2023-12-03 00:06:27');
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,7 @@ INSERT INTO `announcements` (`posttype`, `subject`, `text`, `timestamp`) VALUES
 CREATE TABLE `category` (
   `cid` int(11) NOT NULL,
   `cname` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -78,7 +79,188 @@ CREATE TABLE `schedule` (
   `endtime` varchar(200) NOT NULL,
   `cid` int(10) NOT NULL,
   `sid` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`schid`, `day`, `starttime`, `endtime`, `cid`, `sid`) VALUES
+(167, 'Sunday', '08:00', '12:00', 1000, 1),
+(168, 'Sunday', '10:00', '14:00', 2000, 1),
+(169, 'Sunday', '10:00', '18:00', 3000, 1),
+(170, 'Sunday', '10:00', '14:00', 4000, 1),
+(171, 'Sunday', '10:00', '16:00', 1000, 1),
+(172, 'Sunday', '10:00', '16:00', 2000, 1),
+(173, 'Sunday', '12:00', '16:00', 3000, 1),
+(174, 'Sunday', '12:00', '16:00', 4000, 1),
+(175, 'Sunday', '12:00', '16:00', 1000, 1),
+(176, 'Sunday', '12:00', '18:00', 2000, 1),
+(177, 'Sunday', '12:00', '20:00', 3000, 1),
+(178, 'Sunday', '14:00', '21:30', 4000, 1),
+(179, 'Sunday', '14:00', '21:30', 1000, 1),
+(180, 'Sunday', '14:00', '18:00', 2000, 1),
+(181, 'Sunday', '14:00', '18:00', 3000, 1),
+(182, 'Sunday', '14:00', '21:30', 4000, 1),
+(183, 'Sunday', '14:00', '21:30', 1000, 1),
+(184, 'Sunday', '17:30', '21:30', 2000, 1),
+(185, 'Sunday', '17:30', '21:30', 3000, 1),
+(186, 'Sunday', '17:30', '21:30', 4000, 1),
+(187, 'Sunday', '17:30', '21:30', 1000, 1),
+(188, 'Sunday', '17:30', '21:30', 2000, 1),
+(189, 'Sunday', '17:30', '21:30', 3000, 1),
+(190, 'Sunday', '17:30', '21:30', 4000, 1),
+(191, 'Sunday', '17:30', '21:30', 1000, 1),
+(192, 'Monday', '08:00', '12:00', 1000, 1),
+(193, 'Monday', '10:00', '14:00', 2000, 1),
+(194, 'Monday', '10:00', '18:00', 3000, 1),
+(195, 'Monday', '10:00', '14:00', 4000, 1),
+(196, 'Monday', '10:00', '16:00', 1000, 1),
+(197, 'Monday', '10:00', '16:00', 2000, 1),
+(198, 'Monday', '12:00', '16:00', 3000, 1),
+(199, 'Monday', '12:00', '16:00', 4000, 1),
+(200, 'Monday', '12:00', '16:00', 1000, 1),
+(201, 'Monday', '12:00', '18:00', 2000, 1),
+(202, 'Monday', '12:00', '20:00', 3000, 1),
+(203, 'Monday', '14:00', '21:30', 4000, 1),
+(204, 'Monday', '14:00', '21:30', 1000, 1),
+(205, 'Monday', '14:00', '18:00', 2000, 1),
+(206, 'Monday', '14:00', '18:00', 3000, 1),
+(207, 'Monday', '14:00', '21:30', 4000, 1),
+(208, 'Monday', '14:00', '21:30', 1000, 1),
+(209, 'Monday', '17:30', '21:30', 2000, 1),
+(210, 'Monday', '17:30', '21:30', 3000, 1),
+(211, 'Monday', '17:30', '21:30', 4000, 1),
+(212, 'Monday', '17:30', '21:30', 1000, 1),
+(213, 'Monday', '17:30', '21:30', 2000, 1),
+(214, 'Monday', '17:30', '21:30', 3000, 1),
+(215, 'Monday', '17:30', '21:30', 4000, 1),
+(216, 'Monday', '17:30', '21:30', 1000, 1),
+(217, 'Tuesday', '08:00', '12:00', 1000, 1),
+(218, 'Tuesday', '10:00', '14:00', 2000, 1),
+(219, 'Tuesday', '10:00', '18:00', 3000, 1),
+(220, 'Tuesday', '10:00', '14:00', 4000, 1),
+(221, 'Tuesday', '10:00', '16:00', 1000, 1),
+(222, 'Tuesday', '10:00', '16:00', 2000, 1),
+(223, 'Tuesday', '12:00', '16:00', 3000, 1),
+(224, 'Tuesday', '12:00', '16:00', 4000, 1),
+(225, 'Tuesday', '12:00', '16:00', 1000, 1),
+(226, 'Tuesday', '12:00', '18:00', 2000, 1),
+(227, 'Tuesday', '12:00', '20:00', 3000, 1),
+(228, 'Tuesday', '14:00', '21:30', 4000, 1),
+(229, 'Tuesday', '14:00', '21:30', 1000, 1),
+(230, 'Tuesday', '14:00', '18:00', 2000, 1),
+(231, 'Tuesday', '14:00', '18:00', 3000, 1),
+(232, 'Tuesday', '14:00', '21:30', 4000, 1),
+(233, 'Tuesday', '14:00', '21:30', 1000, 1),
+(234, 'Tuesday', '17:30', '21:30', 2000, 1),
+(235, 'Tuesday', '17:30', '21:30', 3000, 1),
+(236, 'Tuesday', '17:30', '21:30', 4000, 1),
+(237, 'Tuesday', '17:30', '21:30', 1000, 1),
+(238, 'Tuesday', '17:30', '21:30', 2000, 1),
+(239, 'Tuesday', '17:30', '21:30', 3000, 1),
+(240, 'Tuesday', '17:30', '21:30', 4000, 1),
+(241, 'Tuesday', '17:30', '21:30', 1000, 1),
+(242, 'Wednesday', '08:00', '12:00', 1000, 1),
+(243, 'Wednesday', '10:00', '14:00', 2000, 1),
+(244, 'Wednesday', '10:00', '18:00', 3000, 1),
+(245, 'Wednesday', '10:00', '14:00', 4000, 1),
+(246, 'Wednesday', '10:00', '16:00', 1000, 1),
+(247, 'Wednesday', '10:00', '16:00', 2000, 1),
+(248, 'Wednesday', '12:00', '16:00', 3000, 1),
+(249, 'Wednesday', '12:00', '16:00', 4000, 1),
+(250, 'Wednesday', '12:00', '16:00', 1000, 1),
+(251, 'Wednesday', '12:00', '18:00', 2000, 1),
+(252, 'Wednesday', '12:00', '20:00', 3000, 1),
+(253, 'Wednesday', '14:00', '21:30', 4000, 1),
+(254, 'Wednesday', '14:00', '21:30', 1000, 1),
+(255, 'Wednesday', '14:00', '18:00', 2000, 1),
+(256, 'Wednesday', '14:00', '18:00', 3000, 1),
+(257, 'Wednesday', '14:00', '21:30', 4000, 1),
+(258, 'Wednesday', '14:00', '21:30', 1000, 1),
+(259, 'Wednesday', '17:30', '21:30', 2000, 1),
+(260, 'Wednesday', '17:30', '21:30', 3000, 1),
+(261, 'Wednesday', '17:30', '21:30', 4000, 1),
+(262, 'Wednesday', '17:30', '21:30', 1000, 1),
+(263, 'Wednesday', '17:30', '21:30', 2000, 1),
+(264, 'Wednesday', '17:30', '21:30', 3000, 1),
+(265, 'Wednesday', '17:30', '21:30', 4000, 1),
+(266, 'Wednesday', '17:30', '21:30', 1000, 1),
+(267, 'Thursday', '08:00', '12:00', 1000, 1),
+(268, 'Thursday', '10:00', '14:00', 2000, 1),
+(269, 'Thursday', '10:00', '18:00', 3000, 1),
+(270, 'Thursday', '10:00', '14:00', 4000, 1),
+(271, 'Thursday', '10:00', '16:00', 1000, 1),
+(272, 'Thursday', '10:00', '16:00', 2000, 1),
+(273, 'Thursday', '12:00', '16:00', 3000, 1),
+(274, 'Thursday', '12:00', '16:00', 4000, 1),
+(275, 'Thursday', '12:00', '16:00', 1000, 1),
+(276, 'Thursday', '12:00', '18:00', 2000, 1),
+(277, 'Thursday', '12:00', '20:00', 3000, 1),
+(278, 'Thursday', '14:00', '21:30', 4000, 1),
+(279, 'Thursday', '14:00', '21:30', 1000, 1),
+(280, 'Thursday', '14:00', '18:00', 2000, 1),
+(281, 'Thursday', '14:00', '18:00', 3000, 1),
+(282, 'Thursday', '14:00', '21:30', 4000, 1),
+(283, 'Thursday', '14:00', '21:30', 1000, 1),
+(284, 'Thursday', '17:30', '21:30', 2000, 1),
+(285, 'Thursday', '17:30', '21:30', 3000, 1),
+(286, 'Thursday', '17:30', '21:30', 4000, 1),
+(287, 'Thursday', '17:30', '21:30', 1000, 1),
+(288, 'Thursday', '17:30', '21:30', 2000, 1),
+(289, 'Thursday', '17:30', '21:30', 3000, 1),
+(290, 'Thursday', '17:30', '21:30', 4000, 1),
+(291, 'Thursday', '17:30', '21:30', 1000, 1),
+(292, 'Friday', '08:00', '12:00', 1000, 1),
+(293, 'Friday', '10:00', '14:00', 2000, 1),
+(294, 'Friday', '10:00', '18:00', 3000, 1),
+(295, 'Friday', '10:00', '14:00', 4000, 1),
+(296, 'Friday', '10:00', '16:00', 1000, 1),
+(297, 'Friday', '10:00', '16:00', 2000, 1),
+(298, 'Friday', '12:00', '16:00', 3000, 1),
+(299, 'Friday', '12:00', '16:00', 4000, 1),
+(300, 'Friday', '12:00', '16:00', 1000, 1),
+(301, 'Friday', '12:00', '18:00', 2000, 1),
+(302, 'Friday', '12:00', '20:00', 3000, 1),
+(303, 'Friday', '14:00', '21:30', 4000, 1),
+(304, 'Friday', '14:00', '21:30', 1000, 1),
+(305, 'Friday', '14:00', '18:00', 2000, 1),
+(306, 'Friday', '14:00', '18:00', 3000, 1),
+(307, 'Friday', '14:00', '21:30', 4000, 1),
+(308, 'Friday', '14:00', '21:30', 1000, 1),
+(309, 'Friday', '17:30', '21:30', 2000, 1),
+(310, 'Friday', '17:30', '21:30', 3000, 1),
+(311, 'Friday', '17:30', '21:30', 4000, 1),
+(312, 'Friday', '17:30', '21:30', 1000, 1),
+(313, 'Friday', '17:30', '21:30', 2000, 1),
+(314, 'Friday', '17:30', '21:30', 3000, 1),
+(315, 'Friday', '17:30', '21:30', 4000, 1),
+(316, 'Friday', '17:30', '21:30', 1000, 1),
+(317, 'Saturday', '08:00', '12:00', 1000, 1),
+(318, 'Saturday', '10:00', '14:00', 2000, 1),
+(319, 'Saturday', '10:00', '18:00', 3000, 1),
+(320, 'Saturday', '10:00', '14:00', 4000, 1),
+(321, 'Saturday', '10:00', '16:00', 1000, 1),
+(322, 'Saturday', '10:00', '16:00', 2000, 1),
+(323, 'Saturday', '12:00', '16:00', 3000, 1),
+(324, 'Saturday', '12:00', '16:00', 4000, 1),
+(325, 'Saturday', '12:00', '16:00', 1000, 1),
+(326, 'Saturday', '12:00', '18:00', 2000, 1),
+(327, 'Saturday', '12:00', '20:00', 3000, 1),
+(328, 'Saturday', '14:00', '21:30', 4000, 1),
+(329, 'Saturday', '14:00', '21:30', 1000, 1),
+(330, 'Saturday', '14:00', '18:00', 2000, 1),
+(331, 'Saturday', '14:00', '18:00', 3000, 1),
+(332, 'Saturday', '14:00', '21:30', 4000, 1),
+(333, 'Saturday', '14:00', '21:30', 1000, 1),
+(334, 'Saturday', '17:30', '21:30', 2000, 1),
+(335, 'Saturday', '17:30', '21:30', 3000, 1),
+(336, 'Saturday', '17:30', '21:30', 4000, 1),
+(337, 'Saturday', '17:30', '21:30', 1000, 1),
+(338, 'Saturday', '17:30', '21:30', 2000, 1),
+(339, 'Saturday', '17:30', '21:30', 3000, 1),
+(340, 'Saturday', '17:30', '21:30', 4000, 1),
+(341, 'Saturday', '17:30', '21:30', 1000, 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +277,7 @@ CREATE TABLE `staff` (
   `password` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `role` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `staff`
@@ -142,7 +324,7 @@ CREATE TABLE `staffshift` (
   `sid` int(10) NOT NULL,
   `schid` int(10) NOT NULL,
   `cid` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `staffshift`
@@ -161,7 +343,7 @@ CREATE TABLE `subcategory` (
   `scid` int(10) NOT NULL,
   `cid` int(10) NOT NULL,
   `scname` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subcategory`
@@ -230,7 +412,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `schid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=342;
 
 --
 -- AUTO_INCREMENT for table `staff`
