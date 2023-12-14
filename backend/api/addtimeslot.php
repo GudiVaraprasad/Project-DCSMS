@@ -12,7 +12,6 @@ if (isset($_POST['day'])) {
     $data['status'] = "success";
     echo json_encode($data);
   } else {
-    // echo "Error: " . $sql . "<br>" . $conn->error;
     $data = array();
     $data['status'] = "fail";
     echo json_encode($data);
