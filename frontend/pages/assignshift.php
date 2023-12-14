@@ -208,8 +208,8 @@ if (!isset($_SESSION['email'])) {
     <script src="../js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        function AssignId(data) {
-            $('#schid').val(data);
+        function AssignId(data, data2) {
+            $('#schid').val(data2);
             $('#getemployees').html('');
             $.ajax({
                 type: 'post',
@@ -242,6 +242,7 @@ if (!isset($_SESSION['email'])) {
                         $('#myModal').modal('hide');
                         return;
                         $(document.querySelector('form')).reset();
+                        window.location.reload();
                     } else {
                         toastr.error("Please contact Developer");
                         $('#myModal').modal('hide');

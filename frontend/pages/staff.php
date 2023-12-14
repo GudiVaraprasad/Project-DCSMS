@@ -46,17 +46,17 @@ if (!isset($_SESSION['sid'])) {
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
+        <a href="diningschedule.php" class="nav-link text-dark">
+          <i class="fa fa-calendar-plus-o mr-3 text-dark fa-fw"></i>
+          Dining Schedule
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="staffshifts.php" class="nav-link text-dark bg-light">
           <i class="fa fa-tasks mr-3 text-dark fa-fw"></i>
           My Shifts
         </a>
       </li>
-      <!-- <li class="nav-item">
-        <a href="staffapplyshift.php" class="nav-link text-dark">
-          <i class="fa fa-calendar-plus-o mr-3 text-dark fa-fw"></i>
-          Apply Shift
-        </a>
-      </li> -->
 
       <!-- <li class="nav-item">
         <a href="index.php" class="nav-link text-dark">
