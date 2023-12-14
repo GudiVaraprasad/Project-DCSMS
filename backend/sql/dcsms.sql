@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 08:14 AM
+-- Generation Time: Dec 14, 2023 at 08:35 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -2526,7 +2526,7 @@ CREATE TABLE `staff` (
   `lname` varchar(50) NOT NULL,
   `age` int(3) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(42) DEFAULT NULL,
   `phone` varchar(15) NOT NULL,
   `role` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2536,33 +2536,33 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`sid`, `fname`, `lname`, `age`, `email`, `password`, `phone`, `role`) VALUES
-(30234567, 'Bob', 'Johnson', 40, 'bjohnson@umass.edu', 'bjohnson', '8765432109', 1),
-(30345678, 'Catherine', 'Jones', 22, 'cjones@umass.edu', 'cjones', '7654321098', 1),
-(30456789, 'David', 'Lee', 32, 'dlee@umass.edu', 'dlee', '6543210987', 1),
-(30567890, 'Emma', 'Garcia', 28, 'egarcia@umass.edu', 'egarcia', '5432109876', 1),
-(30678901, 'Frank', 'Martinez', 45, 'fmartinez@umass.edu', 'fmartinez', '4321098765', 1),
-(30789012, 'Grace', 'Taylor', 21, 'gtaylor@umass.edu', 'gtaylor', '3210987654', 1),
-(30890123, 'Henry', 'Clark', 38, 'hclark@umass.edu', 'hclark', '2109876543', 1),
-(31012345, 'Ivy', 'Anderson', 27, 'ianderson@umass.edu', 'ianderson', '1098765432', 1),
-(31024796, 'Vyshnavi', 'Shah', 22, 'vshah@umass.edu', 'vshah', '4134889965', 1),
-(31123456, 'Jack', 'White', 34, 'jwhite@umass.edu', 'jwhite', '9876543210', 1),
-(31234567, 'Kelly', 'Wing', 23, 'kwing@umass.edu', 'kwang', '8765432109', 1),
-(31456789, 'Mia', 'Zhang', 29, 'mzhang@umass.edu', 'mzhang', '6543210987', 1),
-(31678901, 'Olivia', 'Nguyen', 26, 'onguyen@umass.edu', 'onguyen', '4321098765', 1),
-(31789012, 'Peter', 'Liu', 33, 'pliu@umass.edu', 'pliu', '3210987654', 1),
-(31901234, 'Quinn', 'Brown', 24, 'qbrown@umass.edu', 'qbrown', '2109876543', 1),
-(32012345, 'Ryan', 'Gupta', 36, 'rgupta@umass.edu', 'rgupta', '1098765432', 1),
-(32123456, 'Sara', 'Patel', 19, 'spatel@umass.edu', 'spatel', '9876543210', 1),
-(32234567, 'Tom', 'Williams', 37, 'twilliams@umass.edu', 'twilliams', '8765432109', 1),
-(32456789, 'Victor', 'Jones', 39, 'vjones@umass.edu', 'vjones', '6543210987', 1),
-(32567890, 'Wendy', 'Brown', 30, 'wbrown@umass.edu', 'wbrown', '5432109876', 1),
-(32678901, 'Xavier', 'Miller', 28, 'xmiller@umass.edu', 'xmiller', '4321098765', 1),
-(32890123, 'Zack', 'Lopez', 25, 'zlopez@umass.edu', 'zlopez', '2109876543', 1),
-(34015607, 'Tushar', 'Budhwani', 22, 'tbudhwani@umass.edu', 'tbudhwani', '4134661100', 1),
-(34027125, 'Rishika', 'Dendi', 25, 'rdendi@umass.edu', 'rdendi', '4134668871', 1),
-(34028209, 'Vara Prasad', 'Gudi', 22, 'vgudi@umass.edu', 'vgudi', '4134661186', 0),
-(34028210, 'Bob', 'Marshal', 49, 'bob@umass.edu', 'bob', '4712559985', 1),
-(38915720, 'Pranav', 'Sesha', 24, 'psesha@umass.edu', 'psesha', '6127449853', 1);
+(30234567, 'Bob', 'Johnson', 40, 'bjohnson@umass.edu', '*BB54A3EAA3C29D5F4C73E5BB8E1B63A2B20FFF34', '8765432109', 1),
+(30345678, 'Catherine', 'Jones', 22, 'cjones@umass.edu', '*8E7CC6967681917EEF696B26C65CD6DD118CDDD0', '7654321098', 1),
+(30456789, 'David', 'Lee', 32, 'dlee@umass.edu', '*CED3A2A0C6A2A735DC6E0F0058806AEBE730948E', '6543210987', 1),
+(30567890, 'Emma', 'Garcia', 28, 'egarcia@umass.edu', '*757D5BC05AA32EEA06590F26F65E8AEA9EE7E627', '5432109876', 1),
+(30678901, 'Frank', 'Martinez', 45, 'fmartinez@umass.edu', '*5A66AE3CBD4DB9F16B17663FDF9FE6A6984161E9', '4321098765', 1),
+(30789012, 'Grace', 'Taylor', 21, 'gtaylor@umass.edu', '*05592BB5536E3CBBE854AD96EEB6C4A49966E8FB', '3210987654', 1),
+(30890123, 'Henry', 'Clark', 38, 'hclark@umass.edu', '*FA80095BD7FD9649DC452F85AF931E324AD4B0FF', '2109876543', 1),
+(31012345, 'Ivy', 'Anderson', 27, 'ianderson@umass.edu', '*9D44DACC288D587BF108536173FFE4502C62CCE5', '1098765432', 1),
+(31024796, 'Vyshnavi', 'Shah', 22, 'vshah@umass.edu', '*123DB1E1188E8BEBD5B7D776D186592877ECE297', '4134889965', 1),
+(31123456, 'Jack', 'White', 34, 'jwhite@umass.edu', '*FA481636A8C9AF98718C8400E2E18061E305E21D', '9876543210', 1),
+(31234567, 'Kelly', 'Wing', 23, 'kwing@umass.edu', '*0DBAE8F7CCB4BE54F454E189D114B1AE7F1A1FB3', '8765432109', 1),
+(31456789, 'Mia', 'Zhang', 29, 'mzhang@umass.edu', '*C3AD683F67CBC230340EE28A281D85632CF74B4E', '6543210987', 1),
+(31678901, 'Olivia', 'Nguyen', 26, 'onguyen@umass.edu', '*9175CDF6C596B37B361AEBD9D194AA096EE505FC', '4321098765', 1),
+(31789012, 'Peter', 'Liu', 33, 'pliu@umass.edu', '*31E380740959EA07B32EC251FC5440ECCCD3EB21', '3210987654', 1),
+(31901234, 'Quinn', 'Brown', 24, 'qbrown@umass.edu', '*F5D8C891E20A1D97C7BB1E6A037BE9A029493576', '2109876543', 1),
+(32012345, 'Ryan', 'Gupta', 36, 'rgupta@umass.edu', '*5BCAFCF97FD091EDC02A960EA4A83F01B9EAE633', '1098765432', 1),
+(32123456, 'Sara', 'Patel', 19, 'spatel@umass.edu', '*9CFC889ACA21B4DC5950797703F9C9E38F022B8C', '9876543210', 1),
+(32234567, 'Tom', 'Williams', 37, 'twilliams@umass.edu', '*36167D60AE74924EC347D3BB05A5C5F64B49399D', '8765432109', 1),
+(32456789, 'Victor', 'Jones', 39, 'vjones@umass.edu', '*201D2BE0C56B7C8795C1C329027A7D1D528A1C23', '6543210987', 1),
+(32567890, 'Wendy', 'Brown', 30, 'wbrown@umass.edu', '*4A6AAE1C361A19D5D6117FAB71D18E3DD5922981', '5432109876', 1),
+(32678901, 'Xavier', 'Miller', 28, 'xmiller@umass.edu', '*EF7131317A9D12552E0B4DCF905B551D6034C233', '4321098765', 1),
+(32890123, 'Zack', 'Lopez', 25, 'zlopez@umass.edu', '*48ADF1827118390893BEE58E05AA947BDF3D23D3', '2109876543', 1),
+(34015607, 'Tushar', 'Budhwani', 22, 'tbudhwani@umass.edu', '*87ECABDD7A84D3DB6234FA9BA2B4013547006920', '4134661100', 1),
+(34027125, 'Rishika', 'Dendi', 25, 'rdendi@umass.edu', '*0413AD9BF6144BE4BF8A4BF3A33015BEADA6A05D', '4134668871', 1),
+(34028209, 'Vara Prasad', 'Gudi', 22, 'vgudi@umass.edu', '*069EE274C88DA89F560DEE53063EE03B4EBD85F3', '4134661186', 0),
+(34028210, 'Bob', 'Marshal', 49, 'bob@umass.edu', '*61584B76F6ECE8FB9A328E7CF198094B2FAC55C7', '4712559985', 1),
+(38915720, 'Pranav', 'Sesha', 24, 'psesha@umass.edu', '*4B06DD726B451D21136228F2931CB98EA412FD96', '6127449853', 1);
 
 -- --------------------------------------------------------
 
