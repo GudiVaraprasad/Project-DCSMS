@@ -46,6 +46,12 @@ if (!isset($_SESSION['sid'])) {
 
         <ul class="nav flex-column bg-white mb-0">
             <li class="nav-item">
+                <a href="diningschedule.php" class="nav-link text-dark">
+                    <i class="fa fa-calendar-plus-o mr-3 text-dark fa-fw"></i>
+                    Dining Schedule
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="staffshifts.php" class="nav-link text-dark bg-light">
                     <i class="fa fa-tasks mr-3 text-dark fa-fw"></i>
                     My Shifts
@@ -76,27 +82,39 @@ if (!isset($_SESSION['sid'])) {
         <h2 class="display-4 text-white text-center">My Shifts</h2>
 
         <div class="separator"></div>
-        <div class="row text-white">
-            <div class="col-lg-6">
-                HERE
-            </div>
+        <table class="table text-white table-border">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Day</th>
+                    <th>Time Slot</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $query = "SELECT * FROM schedule LEFT JOIN category ON schedule.cid = category.cid WHERE schedule.sid = '" . $_SESSION['sid'] . "'";
 
-        </div>
-        <!-- <div class="mt-3">
-      <img src="img2.png" width="1000rem" height="auto" class="rounded mx-auto d-block" alt="...">
-    </div> -->
-        <!-- <div class="mt-5 text-center">
-<button type="button" class="btn btn-dark">Know More
-	<i class="fa fa-arrow-right mr-1 text-light fa-fw"></i>
-</button>
-</div> -->
+                $query_run = mysqli_query($conn, $query);
+                $sno = 0;
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    $sno = $sno + 1;
+                    echo "<tr>
+                <th>" . $sno . "</th>
+                <td>" . $row['day'] . "</td>
+                <td>" . $row['starttime'] . "-" . $row['endtime'] . "</td>
+                <td>" . $row['cname'] . "</td>";
+                }
+                ?>
+            </tbody>
+        </table>
 
         <div class="footer-copyright text-center text-light py-3 mt-5">&copy; Copyright DCSMS</div>
 
+
+
+
     </div>
-
-
-
 
     <!-- End demo content -->
 
