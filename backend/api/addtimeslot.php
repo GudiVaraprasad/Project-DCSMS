@@ -1,24 +1,29 @@
 <?php
 include('../config/connect.php');
-if (isset($_POST['day'])) {
-  $shiftcat = $_POST['shiftcat'];
-  $shiftsubcat = $_POST['shiftsubcat'];
-  $starttime = $_POST['starttime'];
-  $endtime = $_POST['endtime'];
-  $day = $_POST['day'];
-  $sql = "INSERT INTO schedule(day,starttime,endtime,cid,scid) VALUES('$day','$starttime','$endtime','$shiftcat','$shiftsubcat')";
-  if ($conn->query($sql) === TRUE) {
-    $data = array();
-    $data['status'] = "success";
-    echo json_encode($data);
-  } else {
-    $data = array();
-    $data['status'] = "fail";
-    echo json_encode($data);
-  }
-} else {
-  $data = array();
-  $data['status'] = 'false';
-  $data['message'] = 'Unable to access';
-  echo json_encode($data);
+
+function addTimeSlot($conn, $postData) {
+    if (isset($postData['day'])) {
+        $shiftcat = $postData['shiftcat'];
+        $shiftsubcat = $postData['shiftsubcat'];
+        $starttime = $postData['starttime'];
+        $endtime = $postData['endtime'];
+        $day = $postData['day'];
+
+        $sql = "INSERT INTO schedule(day,starttime,endtime,cid,scid) VALUES(?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssss", $day, $starttime, $endtime, $shiftcat, $shiftsubcat);
+
+        if ($stmt->execute()) {
+            return ['status' => 'success'];
+        } else {
+            return ['status' => 'error', 'message' => $stmt->error];
+        }
+    }
+
+    return ['status' => 'error', 'message' => 'Missing day parameter'];
+}
+
+// Usage
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo json_encode(addTimeSlot($conn, $_POST));
 }

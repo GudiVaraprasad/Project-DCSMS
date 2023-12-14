@@ -1,24 +1,27 @@
 <?php
 include('../config/connect.php');
-if (isset($_POST['posttype'])) {
-    $posttype = $_POST['posttype'];
-    $subject = $_POST['subject'];
-    $text = $_POST['text'];
 
-    $sql = "INSERT INTO announcements(posttype,subject,text) VALUES('$posttype','$subject','$text')";
-    if ($conn->query($sql) === TRUE) {
-        $data = array();
-        $data['status'] = "success";
-        echo json_encode($data);
-    } else {
-        // echo "Error: " . $sql . "<br>" . $conn->error;
-        $data = array();
-        $data['status'] = "fail";
-        echo json_encode($data);
+function addAnnouncement($conn, $postData) {
+    if (isset($postData['posttype'])) {
+        $posttype = $postData['posttype'];
+        $subject = $postData['subject'];
+        $text = $postData['text'];
+
+        $sql = "INSERT INTO announcements(posttype, subject, text) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $posttype, $subject, $text);
+
+        if ($stmt->execute()) {
+            return ['status' => 'success'];
+        } else {
+            return ['status' => 'error', 'message' => $stmt->error];
+        }
     }
-} else {
-    $data = array();
-    $data['status'] = 'false';
-    $data['message'] = 'Unable to access';
-    echo json_encode($data);
+
+    return ['status' => 'error', 'message' => 'Missing posttype parameter'];
+}
+
+// Usage
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo json_encode(addAnnouncement($conn, $_POST));
 }
