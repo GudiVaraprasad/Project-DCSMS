@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 03:12 AM
+-- Generation Time: Dec 14, 2023 at 05:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -263,7 +263,8 @@ INSERT INTO `schedule` (`schid`, `day`, `starttime`, `endtime`, `cid`, `sid`, `s
 (571, 'Wednesday', '17:30', '21:30', 1000, NULL, 1010),
 (572, 'Thursday', '17:30', '21:30', 1000, NULL, 1010),
 (573, 'Friday', '17:30', '21:30', 1000, NULL, 1010),
-(574, 'Saturday', '17:30', '21:30', 1000, NULL, 1010);
+(574, 'Saturday', '17:30', '21:30', 1000, NULL, 1010),
+(575, 'Sunday', '', '', 1000, NULL, 1010);
 
 -- --------------------------------------------------------
 
@@ -334,11 +335,8 @@ CREATE TABLE `staffshift` (
 --
 
 INSERT INTO `staffshift` (`ssid`, `scid`, `sid`, `schid`, `cid`) VALUES
-(1, 1, 38915720, 0, 0),
-(2, 167, 30567890, 0, 0),
-(3, 404, 30789012, 0, 0),
-(4, 404, 31012345, 0, 0),
-(5, 404, 30890123, 0, 0);
+(25, 1010, 30890123, 0, 0),
+(26, 1010, 38915720, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -431,7 +429,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=575;
+  MODIFY `schid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=576;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -443,7 +441,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `staffshift`
 --
 ALTER TABLE `staffshift`
-  MODIFY `ssid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ssid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
