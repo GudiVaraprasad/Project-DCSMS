@@ -37,7 +37,7 @@ if (!checkSession()) {
             <div class="media d-flex align-items-center">
                 <img loading="lazy" src="../assets/pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                 <div class="media-body">
-                    <h4 class="m-0"></h4>
+                    <h4 class="m-0"><?php echo $_SESSION['fname']; ?></h4>
                 </div>
             </div>
         </div>

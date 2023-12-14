@@ -4,14 +4,9 @@ use DCSMS\Backend\addAnnouncement;
 use PHPUnit\Framework\TestCase;
 require 'vendor/autoload.php';
 
-
-// You might need to adjust the paths according to your autoload configuration
 require 'backend/api/announce.php';
 
-
-
-class AnnounceTest extends TestCase
-{
+class AnnounceTest extends TestCase{
     private $conn;
 
     protected function setUp(): void
