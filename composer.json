@@ -1,5 +1,16 @@
 {
     "require-dev": {
         "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "DCSMS\\Backend\\Api\\": "backend/api/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DCSMS\\Tests\\": "tests/"
+        }
     }
+
 }

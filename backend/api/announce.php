@@ -1,7 +1,10 @@
 <?php
-include('../config/connect.php');
+include 'config/connect.php';
+
 
 function addAnnouncement($conn, $postData) {
+
+
     if (isset($postData['posttype'])) {
         $posttype = $postData['posttype'];
         $subject = $postData['subject'];
@@ -21,7 +24,8 @@ function addAnnouncement($conn, $postData) {
     return ['status' => 'error', 'message' => 'Missing posttype parameter'];
 }
 
-// Usage
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Conditional check for REQUEST_METHOD
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Only run this block if the request method is POST
     echo json_encode(addAnnouncement($conn, $_POST));
 }
