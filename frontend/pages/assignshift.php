@@ -110,13 +110,13 @@ if (!isset($_SESSION['email'])) {
                     <button type="button" class="btn btn-white" onclick="showTable('1000')">Line</button>
                 </div>
                 <div class="col-auto">
-                    <button type="button" class="btn btn-white" onclick="showTable('2000')">Dishroom</button>
+                    <button type="button" class="btn btn-white" onclick="showTable('2000')">GrabnGo</button>
                 </div>
                 <div class="col-auto">
-                    <button type="button" class="btn btn-white" onclick="showTable('3000')">Kitchen</button>
+                    <button type="button" class="btn btn-white" onclick="showTable('3000')">Dishroom</button>
                 </div>
                 <div class="col-auto">
-                    <button type="button" class="btn btn-white" onclick="showTable('4000')">GrabnGo</button>
+                    <button type="button" class="btn btn-white" onclick="showTable('4000')">Kitchen</button>
                 </div>
             </div>
 
