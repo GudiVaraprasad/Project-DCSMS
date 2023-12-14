@@ -1,22 +1,28 @@
 <?php
 include('../config/connect.php');
-if (isset($_POST['schid'])) {
-  $schid = $_POST['schid'];
-  $AssignEmp = $_POST['AssignEmp'];
-  $sql = "INSERT INTO staffshift(scid,sid) VALUES('$schid','$AssignEmp')";
-  if ($conn->query($sql) === TRUE) {
-    $data = array();
-    $data['status'] = "success";
-    echo json_encode($data);
+$schid = $_POST['schid'];
+$assignEmp = $_POST['AssignEmp'];
+
+function insertStaffShift($schid, $assignEmp, $conn)
+{
+  if (isset($schid, $assignEmp)) {
+    $sql = "INSERT INTO staffshift(scid, sid) VALUES ('$schid', '$assignEmp')";
+    if ($conn->query($sql) === TRUE) {
+      $data = array();
+      $data['status'] = "success";
+      return json_encode($data);
+    } else {
+      $data = array();
+      $data['status'] = "fail";
+      return json_encode($data);
+    }
   } else {
-    // echo "Error: " . $sql . "<br>" . $conn->error;
     $data = array();
-    $data['status'] = "fail";
-    echo json_encode($data);
+    $data['status'] = 'false';
+    $data['message'] = 'Unable to access';
+    return json_encode($data);
   }
-} else {
-  $data = array();
-  $data['status'] = 'false';
-  $data['message'] = 'Unable to access';
-  echo json_encode($data);
 }
+
+$result = insertStaffShift($schid, $assignEmp, $conn);
+echo $result;
