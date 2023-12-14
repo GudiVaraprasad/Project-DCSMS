@@ -1,5 +1,5 @@
 <?php
-include './config/connect.php';
+include '../../backend/config/connect.php';
 if (!isset($_SESSION['email'])) {
     header('location: managerlogin.php');
 }
@@ -9,11 +9,11 @@ if (!isset($_SESSION['email'])) {
 
 <head>
     <title>PROJECT DCSMS</title>
-    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <link rel="shortcut icon" href="../assets/icon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
     <!-- Include toastr CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
@@ -29,7 +29,7 @@ if (!isset($_SESSION['email'])) {
     <div class="vertical-nav bg-white" id="sidebar">
         <div class="py-4 px-3 mb-4 bg-light">
             <div class="media d-flex align-items-center">
-                <img loading="lazy" src="pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                <img loading="lazy" src="../assets/pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                 <div class="media-body">
                     <h4 class="m-0"><?php echo $_SESSION['fname']; ?></h4>
                 </div>
@@ -202,7 +202,7 @@ if (!isset($_SESSION['email'])) {
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         function AssignId(data) {
@@ -210,7 +210,7 @@ if (!isset($_SESSION['email'])) {
             $('#getemployees').html('');
             $.ajax({
                 type: 'post',
-                url: 'http://localhost/WEBDEV/Project-DCSMS/api/getemphtml.php',
+                url: 'http://localhost/WEBDEV/Project-DCSMS/backend/api/getemphtml.php',
                 data: {
                     schid: data,
                 },
@@ -226,7 +226,7 @@ if (!isset($_SESSION['email'])) {
             var AssignEmp = $('#AssignEmployee').val();
             $.ajax({
                 type: 'post',
-                url: 'http://localhost/WEBDEV/Project-DCSMS/api/AssignTaskEmp.php',
+                url: 'http://localhost/WEBDEV/Project-DCSMS/backend/api/AssignTaskEmp.php',
                 data: {
                     AssignEmp: AssignEmp,
                     schid: schid,
@@ -251,7 +251,7 @@ if (!isset($_SESSION['email'])) {
             $('#myDataTable').DataTable().destroy();
             $('#myDataTable').DataTable({
                 "ajax": {
-                    "url": 'http://localhost/WEBDEV/Project-DCSMS/api/getassignshift.php',
+                    "url": 'http://localhost/WEBDEV/Project-DCSMS/backend/api/getassignshift.php',
                     "type": "POST",
                     "data": function() {
                         // You can send parameters here if needed

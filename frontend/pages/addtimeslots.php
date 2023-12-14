@@ -1,5 +1,5 @@
 <?php
-include './config/connect.php';
+include '../../backend/config/connect.php';
 if (!isset($_SESSION['email'])) {
     header('location: managerlogin.php');
 }
@@ -9,17 +9,19 @@ if (!isset($_SESSION['email'])) {
 
 <head>
     <title>PROJECT DCSMS</title>
-    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <link rel="shortcut icon" href="../assets/icon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Include toastr CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <!-- Include toastr JS file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 </head>
 
 <body>
@@ -28,7 +30,7 @@ if (!isset($_SESSION['email'])) {
     <div class="vertical-nav bg-white" id="sidebar">
         <div class="py-4 px-3 mb-4 bg-light">
             <div class="media d-flex align-items-center">
-                <img loading="lazy" src="pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                <img loading="lazy" src="../assets/pic.jpg" alt="..." width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                 <div class="media-body">
                     <h4 class="m-0"><?php echo $_SESSION['fname']; ?></h4>
                 </div>
@@ -98,34 +100,83 @@ if (!isset($_SESSION['email'])) {
         <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
 
         <!-- Demo content -->
-        <h4 class="display-4 text-white text-center">Announcements</h4>
+        <h4 class="display-4 text-white text-center">Add Time Slots</h4>
 
         <div class="separator"></div>
         <div class="row text-white">
-            <div class="col-lg-6">
-                <form>
-                    <div class="form-group">
-                        <label for="posttype">Post Type</label>
-                        <select class="form-control" id="posttype" name="posttype">
-                            <option value="Announcement">Announcement</option>
-                            <option value="Warning">Warning</option>
-                        </select>
+            <div class="col-lg-12 align-items-center justify-content-center">
+                <form method="post">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Day</label>
+                        <div class="form-group">
+                            <select class="form-control" id="shiftday" name="shiftday">
+                                <option value="Sunday">Sunday</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Category</label>
+                        <div class="form-group">
+                            <select class="form-control" id="shiftcategory">
+                                <option value="1000">Line</option>
+                                <option value="2000">GrabnGo</option>
+                                <option value="3000">Dishroom</option>
+                                <option value="4000">Kitchen</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="text">Text</label>
-                        <textarea class="form-control" id="text" name="text" rows="5" placeholder="Message"></textarea>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Sub-Category</label>
+                        <div class="form-group">
+                            <select class="form-control" id="shiftsubcategory" name="shiftsubcategory">
+                                <option value="1010">Asian</option>
+                                <option value="1011">Stir Fry</option>
+                                <option value="1012">Latin</option>
+                                <option value="1013">Deli/Subway</option>
+
+                                <option value="2010">Pack</option>
+                                <option value="2011">Supply</option>
+                                <option value="2012">Cashier</option>
+
+                                <option value="3010">Dishroom</option>
+                                <option value="3011">Potroom</option>
+                                <option value="3012">Tables</option>
+
+                                <option value="4010">AM Prep</option>
+                                <option value="4011">Pizza</option>
+                                <option value="4012">PM Prep</option>
+                            </select>
+                        </div>
                     </div>
-                    <button type="button" id="submitbtn" class="btn btn-white">Submit</button>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Start Time</label>
+                        <div class="form-group">
+                            <input type="time" class="form-control" id="starttime" name="starttime">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="endtime" class="col-sm-2 col-form-label">End Time</label>
+                        <div class="form-group">
+                            <input type="time" class="form-control" id="endtime" name="endtime">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="button" id="submitbtn" class="btn btn-white">Add Time Slot</button>
+                        </div>
+                    </div>
                 </form>
             </div>
+
         </div>
         <div class="footer-copyright text-center text-light py-3 mt-5">&copy; Copyright DCSMS</div>
     </div>
-
 
 
 
@@ -139,35 +190,40 @@ if (!isset($_SESSION['email'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
 
     <script>
         $('#submitbtn').on('click', function() {
-            var posttype = $('#posttype').val();
-            var subject = $('#subject').val();
-            var text = $('#text').val();
+            var day = $('#shiftday').val();
+            var shiftcat = $('#shiftcategory').val();
+            var shiftsubcat = $('#shiftsubcategory').val();
+            var starttime = $('#starttime').val();
+            var endtime = $('#endtime').val();
             $.ajax({
                 type: 'post',
-                url: 'http://localhost/WEBDEV/Project-DCSMS/api/announce.php',
+                url: 'http://localhost/WEBDEV/Project-DCSMS/backend/api/addtimeslot.php',
                 data: {
-                    posttype: posttype,
-                    subject: subject,
-                    text: text,
+                    day: day,
+                    shiftcat: shiftcat,
+                    shiftsubcat: shiftsubcat,
+                    starttime: starttime,
+                    endtime: endtime,
                 },
                 success: function(responsedata) {
                     var response = JSON.parse(responsedata);
                     console.log(response);
                     if (response.status.trim() == "success") {
-                        toastr.success("Notified Successfully!");
+                        toastr.success("Succesfully Added");
                         return;
                         $(document.querySelector('form')).reset();
                     } else {
-                        toastr.error("Error");
+                        toastr.error("Please contact Developer");
                     }
                 }
             })
         })
     </script>
+
 </body>
 
 </html>

@@ -1,13 +1,13 @@
 <?php
-include './config/connect.php';
+include '../../backend/config/connect.php';
 ?>
 <html>
 
 <head>
   <title>LOGIN</title>
-  <link rel="shortcut icon" href="icon.png" type="image/png">
+  <link rel="shortcut icon" href="../assets/icon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@ include './config/connect.php';
       <a href="stafflogin.php">For logging as Staff ?</a>
     </div> -->
     <input type="submit" class="submit" value="LOGIN">
-    <span class="logn-form-copy">Not a Manager ? <a href="./staff/stafflogin.php" class="login-form__sign-up">Staff Login</a></span>
+    <span class="logn-form-copy">Not a Manager ? <a href="stafflogin.php" class="login-form__sign-up">Staff Login</a></span>
   </form>
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
