@@ -95,7 +95,7 @@ if (!isset($_SESSION['sid'])) {
     <h2 class="display-4 text-white text-center">My Notifications</h2>
 
     <div class="separator"></div>
-    <div class="row text-white">
+    <div class="row text-white flex-column">
       <?php
       $sql = "SELECT * FROM announcements";
       $result = mysqli_query($conn, $sql);

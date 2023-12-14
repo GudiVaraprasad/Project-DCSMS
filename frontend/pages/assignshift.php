@@ -102,22 +102,25 @@ if (!isset($_SESSION['email'])) {
         <h4 class="display-4 text-white text-center">Assign Shift</h4>
 
         <div class="separator"></div>
-        <div class="row text-white">
-            <div class="row text-white">
-                <div class="col-lg-3">
+
+        <div class="container-fluid">
+
+            <div class="row mb-3">
+                <div class="col-auto">
                     <button type="button" class="btn btn-white" onclick="showTable('1000')">Line</button>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-auto">
                     <button type="button" class="btn btn-white" onclick="showTable('2000')">Dishroom</button>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-auto">
                     <button type="button" class="btn btn-white" onclick="showTable('3000')">Kitchen</button>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-auto">
                     <button type="button" class="btn btn-white" onclick="showTable('4000')">GrabnGo</button>
                 </div>
+            </div>
 
-
+            <div class="container-fluid mt-3 text-white">
                 <div class="table-content active-content" id="line-content">
                     <!-- Table for Line -->
                     <div class="table-responsive">
@@ -205,8 +208,8 @@ if (!isset($_SESSION['email'])) {
     <script src="../js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        function AssignId(data, data2) {
-            $('#schid').val(data2);
+        function AssignId(data) {
+            $('#schid').val(data);
             $('#getemployees').html('');
             $.ajax({
                 type: 'post',
