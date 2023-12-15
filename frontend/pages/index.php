@@ -96,14 +96,14 @@ if (!isset($_SESSION['email'])) {
 
     <div class="separator"></div>
     <div class="row text-white">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
 
 
 
         <p class="lead">The Dining Commons Staff Management System, or Project DCSMS, is a comprehensive software program created to tackle the particular difficulties encountered in staff task management in dining commons.</p>
 
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-12">
 
 
         <p class="lead">The main objectives of this project are to automate the process of assigning tasks, optimize staff duties according to their availability, minimize manual planning efforts, and enhance staff members' real-time communication. DCSMS attempts to optimize operations and improve the overall dining experience in the setting of dining commons, where productivity and efficient task management are critical.</p>
