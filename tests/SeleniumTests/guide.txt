@@ -1,0 +1,17 @@
+Selenium IDE Extension needs to be dowloaded from the browser store. Eg.: Chrome Extensions.
+
+After adding the extension, the 'Project-DCSMS.side' selenium file can be imported on the IDE.
+
+For our web-application, you may need the login credentials for Staff login and manager login.
+
+These are sample (test) credentials, which should be working. 
+1) Manager Login - 
+Login ID - vgudi@umass.edu
+Password - vgudi
+
+2) Staff Login - 
+Login ID - tbudhwani@umass.edu
+Password - tbudhwani
+
+
+After importing, just run he test cases.
